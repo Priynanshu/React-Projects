@@ -10,25 +10,46 @@ const ProductCard = ({ product }) => {
   const inCart = isInCart(product.id);
 
   return (
-    <div className="border rounded-lg p-4 flex flex-col hover:shadow-lg transition">
-      <img
-        src={product.image}
-        alt="product"
-        className="h-40 object-contain mb-4"
-      />
+    <div
+      className="
+        border rounded-xl p-4 flex flex-col bg-white
+        transition-all duration-300
+        hover:-translate-y-2 hover:shadow-xl
+      "
+    >
+      {/* Image */}
+      <div className="overflow-hidden rounded-lg">
+        <img
+          src={product.image}
+          alt="product"
+          className="
+            h-40 w-full object-contain
+            transition-transform duration-300
+            hover:scale-110
+          "
+        />
+      </div>
 
-      <h3 className="text-sm font-semibold line-clamp-2">
+      {/* Content */}
+      <h3 className="text-sm font-semibold line-clamp-2 mt-3">
         {product.title}
       </h3>
 
-      <p className="text-gray-500 text-sm mt-1">{product.category}</p>
+      <p className="text-gray-500 text-xs mt-1">{product.category}</p>
 
-      <p className="font-bold mt-2">₹ {product.price}</p>
+      <p className="font-bold mt-2 text-lg">₹ {product.price}</p>
 
+      {/* Actions */}
       <div className="mt-auto flex gap-2 pt-4">
         <Link
           to={`/product/${product.id}`}
-          className="border px-3 py-1 rounded text-sm cursor-pointer"
+          className="
+            flex-1 text-center
+            border border-gray-300
+            px-3 py-1.5 rounded-lg text-sm
+            hover:bg-gray-100
+            transition
+          "
         >
           View
         </Link>
@@ -36,16 +57,28 @@ const ProductCard = ({ product }) => {
         {inCart ? (
           <button
             onClick={() => removeFromCart(product.id)}
-            className="bg-red-500 text-white px-3 py-1 rounded text-sm cursor-pointer"
+            className="
+              flex-1
+              bg-red-500 text-white
+              px-3 py-1.5 rounded-lg text-sm
+              hover:bg-red-600
+              transition
+            "
           >
             Remove
           </button>
         ) : (
           <button
             onClick={() => addToCart(product)}
-            className="bg-black text-white px-3 py-1 rounded text-sm cursor-pointer"
+            className="
+              flex-1
+              bg-black text-white
+              px-3 py-1.5 rounded-lg text-sm
+              hover:bg-gray-800
+              transition
+            "
           >
-            Add to Cart
+            Add
           </button>
         )}
       </div>

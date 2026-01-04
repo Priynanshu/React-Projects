@@ -14,7 +14,7 @@ const Navbar = () => {
   );
   return (
     <>
-    <nav className="bg-black text-white px-6 py-4 flex justify-between items-center">
+    <nav className="bg-black position: fixed w-full text-white px-6 py-4 flex justify-between items-center">
       <h1 className="text-xl font-bold">FakeStore</h1>
 
       <div className="flex gap-4 items-center">
